@@ -1,0 +1,19 @@
+---
+applications:
+  - name: sap-pod-api
+    memory: 256M
+    disk_quota: 512M
+    command: node server.js
+    buildpacks:
+      - nodejs_buildpack
+    routes:
+      - route: sap-poc-api.cfapps.us10-001.hana.ondemand.com
+    env:
+      KEYCLOAK_URL: "https://keycloak-dev.cfapps.us10-001.hana.ondemand.com" # Placeholder for your shell variable
+      KEYCLOAK_REALM: "sap-app" # Placeholder for your shell variable
+      KEYCLOAK_CLIENT_ID: "sap-app-client" # Placeholder for your shell variable
+      KEYCLOAK_CLIENT_SECRET: "((KEYCLOAK_CLIENT_SECRET))" # Placeholder for your shell variable
+      FRONTEND_URL: "https://sap-poc-app.cfapps.us10-001.hana.ondemand.com" # Placeholder for your shell variable
+      SESSION_SECRET: "((SESSION_SECRET))" # Placeholder for your shell variable
+
+# cf push --var KEYCLOAK_CLIENT_SECRET=$env:KEYCLOAK_CLIENT_SECRET --var SESSION_SECRET=$env:SESSION_SECRET

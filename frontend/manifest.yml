@@ -1,0 +1,10 @@
+---
+applications:
+  - name: sap-poc-app
+    memory: 64M                    # SPAs are static and rarely need more than 64M-128M
+    disk_quota: 128M
+    instances: 1
+    path: ./dist                   # Point this exactly to your compiled build folder
+    buildpack: staticfile_buildpack
+    routes:
+      - route: sap-poc-app.cfapps.us10-001.hana.ondemand.com
