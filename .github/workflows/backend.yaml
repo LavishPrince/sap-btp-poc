@@ -16,6 +16,10 @@ jobs:
     defaults:
       run:
         shell: powershell -ExecutionPolicy Bypass {0}
+    permissions:
+      contents: read
+      security-events: write  # Crucial for uploading SARIF files
+      actions: read           # Required for baseline path lookups
 
     steps:
       # Clone only the specific path from that branch (Sparse Checkout)
@@ -34,7 +38,7 @@ jobs:
           semgrep scan --config auto --sarif --output=semgrep.sarif
 
       - name: Upload SARIF to GitHub Security Tab
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always() # Ensures results upload even if flaws are found
         with:
           sarif_file: .\backend\semgrep.sarif
