@@ -30,6 +30,7 @@ jobs:
         working-directory: .\backend
         run: |
           conda activate semgrep 
+          $env:PYTHONUTF8=1
           semgrep scan --config auto --sarif --output=semgrep.sarif
 
       - name: Upload SARIF to GitHub Security Tab
