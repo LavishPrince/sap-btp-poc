@@ -32,7 +32,7 @@ jobs:
 
       - name: Upload SARIF to GitHub Security Tab
         uses: github/codeql-action/upload-sarif@v3
-        workdirking-directory: backend
+        working-directory: backend
         if: always() # Ensures results upload even if flaws are found
         with:
           sarif_file: semgrep.sarif
