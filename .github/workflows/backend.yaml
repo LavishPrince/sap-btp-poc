@@ -30,12 +30,12 @@ jobs:
           sparse-checkout: |
             backend
           sparse-checkout-cone-mode: true
-      - name: Run Semgrep Scan and Output SARIF
+      - name: Run OpenGrep Scan and Output SARIF
         working-directory: .\backend
         run: |
           conda activate semgrep 
           $env:PYTHONUTF8=1
-          semgrep scan --config auto --sarif --output=semgrep.sarif
+          opengrep scan --config auto --sarif --output=semgrep.sarif
 
       - name: Upload SARIF to GitHub Security Tab
         uses: github/codeql-action/upload-sarif@v4
