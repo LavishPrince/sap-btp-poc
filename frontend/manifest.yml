@@ -5,6 +5,7 @@ applications:
     disk_quota: 256M
     instances: 1
     path: ./dist                   # Point this exactly to your compiled build folder
+    stack: cflinuxfs5
     buildpack: staticfile_buildpack
     routes:
       - route: sap-poc-app.cfapps.us10-001.hana.ondemand.com
