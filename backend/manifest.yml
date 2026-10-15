@@ -6,6 +6,7 @@ applications:
     command: node server.js
     buildpacks:
       - nodejs_buildpack
+    stack: cflinuxfs5
     routes:
       - route: sap-poc-api.cfapps.us10-001.hana.ondemand.com
     env:

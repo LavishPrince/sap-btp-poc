@@ -23,3 +23,5 @@ override.tf.json
 *_override.tf.json
 
 **/node_modules
+github_actions
+opengrep-sast-rules

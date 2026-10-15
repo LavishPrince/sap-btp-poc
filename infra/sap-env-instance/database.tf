@@ -33,6 +33,7 @@ resource "cloudfoundry_app" "tunnel_bridge" {
   memory            = "64M"
   disk_quota        = "64M"
   enable_ssh        = true
+  stack             = "cflinuxfs5"
   path              = data.archive_file.bridge_zip.output_path
   source_code_hash  = data.archive_file.bridge_zip.output_base64sha256 # Triggers updates if run.sh changes
   command           = "bash run.sh"
